@@ -22,6 +22,14 @@ ANSIBLE_SSH_PUBLIC_KEY=
 # AWS credentials for target AWS account
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=
+# Setup for environment per AWS account
+INVENTORY='environments/{account_alias}/AMER_aws_ec2.yml'
+# Example Ansible playbook
+PLAYBOOK='playbooks/{account_alias}/ubuntu-validation.yml'
+```
+
+Optional environment variables:
+```bash
 # Optional, used within Ansible to target AWS resources
 ENVIRONMENT=
 VARIANT=
@@ -46,12 +54,8 @@ ANSIBLE_CONFIG=
 ANSIBLEDEBUG='--skip-tags debug',
 # Optional, used within Ansible to target AWS resources
 BUSINESS_REGION=
-# Setup for environment per AWS account
-INVENTORY='environments/{account_alias}/AMER_aws_ec2.yml'
-# Used by Jenkins to limit hosts (parameter builds)
+# Optional, used by Jenkins to limit hosts by inventory name (parameter builds)
 LIMIT_HOST=
-# Example Ansible playbook
-PLAYBOOK='playbooks/{account_alias}/ubuntu-validation.yml'
 # Ansible verbosity
 VERBOSE=
 # Fargate ECS overrides
